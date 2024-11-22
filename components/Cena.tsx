@@ -1,6 +1,6 @@
 import { getPlates } from "@/lib/getPlates";
 import Plate from "./Plate";
-import "./Almuerzo.css"; // Asegúrate de tener este archivo
+import "./Cena.css"; // Asegúrate de tener este archivo
 
 // Define la interfaz para el tipo Plate
 interface Plate {
@@ -10,15 +10,15 @@ interface Plate {
   precio: number;
 }
 
-async function Almuerzo() {
+async function Cena() {
   // Añade el tipo explícito para plates
   const plates: Plate[] = await getPlates(
-    "https://673629d5aafa2ef2222fb0a8.mockapi.io/menualmuerzo"
+    "https://673629d5aafa2ef2222fb0a8.mockapi.io/menucena"
   );
 
   return (
-    <section className="almuerzo-container">
-      <h1 className="alm">Almuerzo</h1>
+    <section className="cena-container">
+      <h1 className="cena">Cena</h1>
       <div className="grid-container">
         {/* Define el tipo explícito para plate */}
         {plates.map((plate: Plate) => (
@@ -29,4 +29,4 @@ async function Almuerzo() {
   );
 }
 
-export default Almuerzo;
+export default Cena;

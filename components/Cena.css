@@ -1,0 +1,64 @@
+/* Contenedor principal del componente de Cena */
+.cena-container {
+    padding: 20px;
+    background-color: #f3f4f6; /* Fondo ligeramente gris */
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  /* Estilo para el título de Cena */
+  .cena {
+    font-size: 2rem;
+    color: #444; /* Texto un poco más oscuro */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Contenedor en forma de grid para los platos */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Diseño flexible */
+    gap: 20px; /* Espaciado entre elementos */
+  }
+  
+  /* Estilo para los platos individuales (card) */
+  .plate-container {
+    background-color: #fff; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde claro */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .plate-container:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+  }
+  
+  /* Imagen del plato */
+  .plate-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Detalles del plato */
+  .plate-details {
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .plate-details h2 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .plate-details p {
+    font-size: 1rem;
+    color: #555; /* Color ligeramente diferente */
+  }
+  
