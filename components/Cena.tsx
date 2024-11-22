@@ -1,6 +1,6 @@
 import { getPlates } from "@/lib/getPlates";
 import Plate from "./Plate";
-import "./Cena.css"; // Asegúrate de tener este archivo
+import "./styles.css"; 
 
 // Define la interfaz para el tipo Plate
 interface Plate {
