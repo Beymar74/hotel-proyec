@@ -1,16 +1,47 @@
-import React from "react";
-import { getPlates } from "@/lib/getPlates";
-import Headatras from "@/components/Headatras";
-import Cantimaxmin from "@/components/Maxmin";
-import Canconfi from "@/components/Canconfi";
-import Resenas from "@/components/Resenas";
-import "./Platillos.css";
+import { GetServerSideProps } from 'next';
+import React from 'react';
+import Headatras from '@/components/Headatras';
+import Cantimaxmin from '@/components/Maxmin';
+import Canconfi from '@/components/Canconfi';
+import Resenas from '@/components/Resenas';
+import './Platillos.css';
 
-const PlatillosPage = async ({ params }: { params: { id: string } }) => {
-  const data = await getPlates(
-    `https://673629d5aafa2ef2222fb0a8.mockapi.io/platos/${params.id}`
-  );
+type PlateData = {
+  plaimagen: string;
+  titulo: string;
+  precio: number;
+  descripcion: string;
+  ingredientes: string;
+};
 
+type Params = {
+  id: string;
+};
+
+type Props = {
+  data: PlateData;
+};
+
+export const getServerSideProps: GetServerSideProps<Props, Params> = async ({ params }) => {
+  const { id } = params!;
+
+  const response = await fetch(`https://673629d5aafa2ef2222fb0a8.mockapi.io/platos/${id}`);
+  if (!response.ok) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const data: PlateData = await response.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
+const PlatillosPage: React.FC<Props> = ({ data }) => {
   return (
     <main>
       <Headatras />
