@@ -14,24 +14,21 @@ type PlateData = {
   ingredientes: string;
 };
 
-const PlatillosPage = async ({
-  params,
-}: {
+type PageProps = {
   params: { id: string };
-}): Promise<JSX.Element> => {
+};
+
+export default async function PlatillosPage({ params }: PageProps) {
   const { id } = params;
 
-  // Llama a la API para obtener los datos del plato
+  // Obtener datos del plato
   const data: PlateData = await getPlates(
     `https://673629d5aafa2ef2222fb0a8.mockapi.io/platos/${id}`
   );
 
   return (
     <main>
-      {/* Cabecera con botón de regreso */}
       <Headatras />
-
-      {/* Sección de imagen */}
       <div className="imagen">
         <Image
           className="plate"
@@ -41,8 +38,6 @@ const PlatillosPage = async ({
           height={300}
         />
       </div>
-
-      {/* Descripción del platillo */}
       <div className="descripcion">
         <h1 className="titulo">Platillo: {data.titulo}</h1>
         <div className="money">
@@ -55,19 +50,13 @@ const PlatillosPage = async ({
           <p className="descripcion">Descripción: {data.descripcion}</p>
         </div>
       </div>
-
-      {/* Ingredientes principales */}
       <div className="blocking">
         <h1 className="subtitulo">Ingredientes Principales</h1>
         <p className="lista">Ingredientes: {data.ingredientes}</p>
       </div>
-
-      {/* Componentes adicionales */}
       <Cantimaxmin />
       <Canconfi />
       <Resenas />
     </main>
   );
-};
-
-export default PlatillosPage;
+}
