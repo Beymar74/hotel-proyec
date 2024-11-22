@@ -6,7 +6,7 @@ import Resenas from "@/components/Resenas";
 import Image from "next/image";
 import "./Platillos.css";
 
-// Definición del tipo de datos del plato
+// Tipo de datos del plato
 type PlateData = {
   plaimagen: string;
   titulo: string;
@@ -15,21 +15,24 @@ type PlateData = {
   ingredientes: string;
 };
 
+// Función para obtener los parámetros de la ruta
+export async function generateStaticParams() {
+  return [];
+}
+
+// Componente principal de la página
 export default async function PlatillosPage({
   params,
 }: {
   params: { id: string };
 }) {
-  // Extraer el ID de los parámetros
   const { id } = params;
 
   try {
-    // Obtener datos del plato
     const data: PlateData = await getPlates(
       `https://673629d5aafa2ef2222fb0a8.mockapi.io/platos/${id}`
     );
 
-    // Renderizar la página
     return (
       <main>
         <Headatras />
