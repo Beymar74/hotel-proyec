@@ -14,11 +14,10 @@ type PlateData = {
   ingredientes: string;
 };
 
-type PageProps = {
-  params: { id: string };
-};
-
-export default async function PlatillosPage({ params }: PageProps) {
+export default async function PlatillosPage({
+  params,
+}: Awaited<Promise<{ params: { id: string } }>>) {
+  // Resolver los parámetros si es necesario
   const { id } = params;
 
   // Obtener datos del plato
