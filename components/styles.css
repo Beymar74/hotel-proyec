@@ -1,0 +1,85 @@
+/* Contenedor principal de cada sección */
+.section-container {
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  
+  /* Títulos de las secciones (Desayuno, Almuerzo, Cena) */
+  .section-title {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  /* Diseño responsivo en cuadrícula para los platos */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Ajusta el ancho mínimo */
+    gap: 15px; /* Espaciado entre tarjetas */
+  }
+  
+  /* Tarjetas de los platos */
+  .plate-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .plate-container:hover {
+    transform: scale(1.03); /* Efecto de zoom al pasar el ratón */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+  }
+  
+  /* Imagen del plato */
+  .plate-image {
+    width: 100%;
+    height: 120px; /* Ajusta la altura fija para uniformidad */
+    object-fit: cover; /* Escala la imagen sin deformarla */
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Detalles del plato */
+  .plate-details {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .plate-details h2 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .plate-details p {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  /* Reglas responsivas para dispositivos móviles */
+  @media (max-width: 768px) {
+    .section-container {
+      padding: 10px;
+    }
+  
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas pequeñas */
+      gap: 10px;
+    }
+  
+    .plate-image {
+      height: 100px; /* Ajusta la altura de las imágenes */
+    }
+  
+    .plate-details h2 {
+      font-size: 0.9rem;
+    }
+  
+    .plate-details p {
+      font-size: 0.8rem;
+    }
+  }
+  

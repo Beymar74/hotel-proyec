@@ -1,6 +1,6 @@
 import { getPlates } from "@/lib/getPlates"; // Asegúrate de que este archivo esté correctamente configurado
 import Plate from "./Plate"; // Componente Plate correctamente implementado
-import "./Desayuno.css"; // Archivo de estilos específico para Desayuno
+import "./styles.css"; 
 
 // Define la interfaz para el tipo Plate
 interface Plate {
