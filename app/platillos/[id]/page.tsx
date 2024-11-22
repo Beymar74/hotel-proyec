@@ -15,14 +15,14 @@ type PlateData = {
   ingredientes: string;
 };
 
-// Tipo de las props de la página
-interface PlatillosPageProps {
+// Tipo para los props de la página
+type PlatillosPageProps = {
   params: {
     id: string;
   };
-}
+};
 
-// Función para la página dinámica
+// Componente principal de la página
 export default async function PlatillosPage({ params }: PlatillosPageProps) {
   const { id } = params;
 
