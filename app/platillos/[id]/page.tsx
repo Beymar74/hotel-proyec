@@ -15,15 +15,21 @@ type PlateData = {
 };
 
 type Params = {
-  id: string;
+  id?: string; // Hacer que el parámetro sea opcional
 };
 
 type Props = {
   data: PlateData;
 };
 
-export const getServerSideProps: GetServerSideProps<Props, Params> = async ({ params }) => {
-  const { id } = params!;
+export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) => {
+  if (!params?.id) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const { id } = params;
 
   const response = await fetch(`https://673629d5aafa2ef2222fb0a8.mockapi.io/platos/${id}`);
   if (!response.ok) {
