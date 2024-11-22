@@ -1,9 +1,19 @@
-import { getPlates } from "@/lib/getPlates";
-import Plate from "./Plate";
-import "./Desayuno.css";
+import { getPlates } from "@/lib/getPlates"; // Asegúrate de que este archivo esté correctamente configurado
+import Plate from "./Plate"; // Componente Plate correctamente implementado
+import "./Desayuno.css"; // Archivo de estilos específico para Desayuno
 
+// Define la interfaz para el tipo Plate
+interface Plate {
+  id: string;
+  name: string;
+  plaimagen: string;
+  precio: number;
+}
+
+// Componente Desayuno
 async function Desayuno() {
-  const plates = await getPlates(
+  // Obtén los platos desde la API
+  const plates: Plate[] = await getPlates(
     "https://673629d5aafa2ef2222fb0a8.mockapi.io/menudesayuno"
   );
 
@@ -11,7 +21,8 @@ async function Desayuno() {
     <section className="desayuno-container">
       <h1 className="des">Desayuno</h1>
       <div className="grid-container">
-        {plates.map((plate: any) => (
+        {/* Itera sobre los platos y renderiza el componente Plate */}
+        {plates.map((plate) => (
           <Plate key={plate.id} plate={plate} />
         ))}
       </div>

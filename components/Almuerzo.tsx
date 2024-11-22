@@ -1,17 +1,27 @@
 import { getPlates } from "@/lib/getPlates";
 import Plate from "./Plate";
-import "./Desayuno.css";
+import "./Almuerzo.css"; // Asegúrate de tener este archivo
 
-async function Desayuno() {
-  const plates = await getPlates(
-    "https://673629d5aafa2ef2222fb0a8.mockapi.io/menudesayuno"
+// Define la interfaz para el tipo Plate
+interface Plate {
+  id: string;
+  name: string;
+  plaimagen: string;
+  precio: number;
+}
+
+async function Almuerzo() {
+  // Añade el tipo explícito para plates
+  const plates: Plate[] = await getPlates(
+    "https://673629d5aafa2ef2222fb0a8.mockapi.io/menualmuerzo"
   );
 
   return (
-    <section className="desayuno-container">
-      <h1 className="des">Desayuno</h1>
+    <section className="almuerzo-container">
+      <h1 className="alm">Almuerzo</h1>
       <div className="grid-container">
-        {plates.map((plate: any) => (
+        {/* Define el tipo explícito para plate */}
+        {plates.map((plate: Plate) => (
           <Plate key={plate.id} plate={plate} />
         ))}
       </div>
@@ -19,4 +29,4 @@ async function Desayuno() {
   );
 }
 
-export default Desayuno;
+export default Almuerzo;
