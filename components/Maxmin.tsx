@@ -1,3 +1,5 @@
+"use client"; // Esto indica que el componente debe ejecutarse en el cliente
+
 import React, { useState } from "react";
 import Image from "next/image";
 import "./Maxmin.css";
@@ -26,8 +28,8 @@ const Cantimaxmin = () => {
             <Image
               className="min"
               src="/menos.png"
-              width={16} // Ajusta según tu diseño
-              height={16} // Ajusta según tu diseño
+              width={16}
+              height={16}
               alt="Icono Menos"
             />
           </button>
@@ -36,8 +38,8 @@ const Cantimaxmin = () => {
             <Image
               className="max"
               src="/mas.png"
-              width={16} // Ajusta según tu diseño
-              height={16} // Ajusta según tu diseño
+              width={16}
+              height={16}
               alt="Icono Más"
             />
           </button>
