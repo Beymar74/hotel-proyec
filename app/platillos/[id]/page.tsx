@@ -6,10 +6,6 @@ import Canconfi from "@/components/Canconfi";
 import Resenas from "@/components/Resenas";
 import "./Platillos.css";
 
-type PlatillosPageProps = {
-  params: { id: string };
-};
-
 const PlatillosPage = async ({ params }: { params: { id: string } }) => {
   const data = await getPlates(
     `https://673629d5aafa2ef2222fb0a8.mockapi.io/platos/${params.id}`
