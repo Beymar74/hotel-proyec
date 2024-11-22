@@ -6,13 +6,15 @@ import Resenas from "@/components/Resenas";
 import "./Platillos.css";
 
 type Props = {
-  params: { id: string };
+  params: {
+    id: string;
+  };
 };
 
 const PlatillosPage = async ({ params }: Props) => {
-  // Espera a que los parámetros estén disponibles
-  const { id } = await params;
+  const { id } = params;
 
+  // Llama a la función para obtener los datos
   const data = await getPlates(
     `https://673629d5aafa2ef2222fb0a8.mockapi.io/platos/${id}`
   );
