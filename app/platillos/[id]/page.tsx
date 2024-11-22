@@ -6,7 +6,7 @@ import Resenas from "@/components/Resenas";
 import Image from "next/image";
 import "./Platillos.css";
 
-// Tipo de datos del plato
+// Tipo para los datos del plato
 type PlateData = {
   plaimagen: string;
   titulo: string;
@@ -15,17 +15,15 @@ type PlateData = {
   ingredientes: string;
 };
 
-// Función para obtener los parámetros de la ruta
-export async function generateStaticParams() {
-  return [];
+// Tipo de las props de la página
+interface PlatillosPageProps {
+  params: {
+    id: string;
+  };
 }
 
-// Componente principal de la página
-export default async function PlatillosPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+// Función para la página dinámica
+export default async function PlatillosPage({ params }: PlatillosPageProps) {
   const { id } = params;
 
   try {
