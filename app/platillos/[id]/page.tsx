@@ -6,20 +6,13 @@ import Canconfi from "@/components/Canconfi";
 import Resenas from "@/components/Resenas";
 import "./Platillos.css";
 
-// Define el tipo de las props que se reciben
 type PlatillosPageProps = {
-  params: {
-    id: string; // ID del platillo desde la ruta dinámica
-  }; 
-  
+  params: { id: string };
 };
 
-const PlatillosPage = async ({ params }: PlatillosPageProps) => {
-  const { id } = params;
-
-  // Realiza la petición al API para obtener los datos del platillo
+const PlatillosPage = async ({ params }: { params: { id: string } }) => {
   const data = await getPlates(
-    `https://673629d5aafa2ef2222fb0a8.mockapi.io/platos/${id}`
+    `https://673629d5aafa2ef2222fb0a8.mockapi.io/platos/${params.id}`
   );
 
   return (
@@ -51,5 +44,4 @@ const PlatillosPage = async ({ params }: PlatillosPageProps) => {
   );
 };
 
-// Exporta el componente
 export default PlatillosPage;
